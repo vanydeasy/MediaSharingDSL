@@ -52,4 +52,16 @@ class MediaSharing {
             databaseConn.insertAction(md, user.id, 'dislike')
         }]
     }
+    
+    def comment(md) {
+        [by: {uname ->
+            [parent: {parent -> 
+                [content: {content -> 
+                    def user = databaseConn.getUser(uname)
+                    def par = databaseConn.getComment(parent)
+                    databaseConn.insertComment(user.id, md, par.id, content)
+                }]
+            }]
+        }]
+    }
 }

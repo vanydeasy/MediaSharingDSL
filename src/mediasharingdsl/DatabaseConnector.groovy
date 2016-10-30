@@ -25,6 +25,10 @@ class DatabaseConnector {
         return sql.rows("SELECT * FROM user WHERE username="+"'"+username+"'")[0]
     }
     
+    def getComment(content) {
+        return sql.rows("SELECT * FROM comment WHERE content="+"'"+content+"'")[0]
+    }
+    
     def insertUser(info) {
         def command = "INSERT INTO user(username, email, password, first_name, last_name, active) VALUES "+\
                         "('${info.username}', '${info.email}', '${info.password}', '${info.first_name}', '${info.last_name}', 1)"
@@ -47,6 +51,18 @@ class DatabaseConnector {
         } catch(Exception ex) {
             sql.rollback()
             println("Failed to like media")
+        }
+    }
+    
+    def insertComment(user, mediaId, parentId, content) {
+        def command = "INSERT INTO comment(user_id, media_id, parent_id, content) VALUES "+\
+                        "('${user}', '${mediaId}', '${parentId}', '${content}')"
+        try {
+            sql.execute(command);
+            println("Your comment was successfully posted!") 
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Failed to post your comment")
         }
     }
 }

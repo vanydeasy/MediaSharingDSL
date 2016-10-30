@@ -19,3 +19,5 @@ sign up username "vany" email "vanydeasy@gmail.com" password "12345" first_name 
 like 1 by "vany"
 sign up username "venny" email "vennylaras@gmail.com" password "12345" first_name "venny" last_name "larasati"
 dislike 1 by "venny"
+sign up username "pipin" email "pipin@gmail.com" password "12345" first_name "pipin" last_name "kurniawati"
+comment 1 by "pipin" parent "My First Video!" content "haha"
