@@ -39,4 +39,17 @@ class MediaSharing {
         databaseConn.insertUser(it)
     }
     
+    def like(md) {
+        [by: {un ->
+            def user = databaseConn.getUser(un)
+            databaseConn.insertAction(md, user.id, 'like')
+        }]
+    }
+    
+    def dislike(md) {
+        [by: {un ->
+            def user = databaseConn.getUser(un)
+            databaseConn.insertAction(md, user.id, 'dislike')
+        }]
+    }
 }

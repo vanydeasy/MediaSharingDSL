@@ -22,7 +22,7 @@ class DatabaseConnector {
     }
     
     def getUser(username) {
-        return sql.rows("SELECT * FROM user WHERE username="+username)[0]
+        return sql.rows("SELECT * FROM user WHERE username="+"'"+username+"'")[0]
     }
     
     def insertUser(info) {
@@ -30,11 +30,23 @@ class DatabaseConnector {
                         "('${info.username}', '${info.email}', '${info.password}', '${info.first_name}', '${info.last_name}', 1)"
         try {
             sql.execute(command);
-            sql.commit()
             println("Signup succedded") 
         } catch(Exception ex) {
             sql.rollback()
             println("Signup failed")
+        }
+        
+    }
+    
+    def insertAction(mediaId, user, action) {
+        def command = "INSERT INTO action(user_id, media_id, action) VALUES "+\
+                        "('${user}', '${mediaId}', '${action}')"
+        try {
+            sql.execute(command);
+            println("Media liked!") 
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Failed to like media")
         }
     }
 }

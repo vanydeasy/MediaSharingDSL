@@ -8,14 +8,11 @@ package mediasharingdsl
 
 /**
  *
- * @author vanyadeasy
+ * @author Venny
  */
-class User {
-    def id
-    def username
-    def email
-    def password
-    def first_name
-    def last_name
+class Action {
+    def userId;
+    def mediaId;
+    def action;
 }
 
