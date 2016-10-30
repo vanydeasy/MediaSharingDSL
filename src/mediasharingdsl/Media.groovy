@@ -11,7 +11,12 @@ package mediasharingdsl
  * @author vanyadeasy
  */
 class Media {
-    def link
+    def userId
+    def categoryId
     def name
-    def createdAt
+    def filename
+    def description
+    def urlPath
+    def mimeType
+    def permission
 }
