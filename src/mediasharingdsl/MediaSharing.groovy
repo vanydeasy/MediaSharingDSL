@@ -52,4 +52,24 @@ class MediaSharing {
             databaseConn.insertAction(md, user.id, 'dislike')
         }]
     }
+    
+    def upload(catid){
+        [file: {filename ->
+            [title: {name -> 
+                [type: {mimeType ->
+                    [description: {description ->
+                        [permission: {permission ->
+                            [path: {urlPath ->
+                                [by: {username ->
+                                    def user =databaseConn.getUser(username)
+                                    Media media = new Media(userId: user.id, categoryId: catid, name: name, filename: filename, description: description, urlPath: urlPath, mimeType: mimeType, permission: permission)
+                                    databaseConn.insertMedia(media)
+                                }]
+                            }]
+                        }]        
+                    }]
+                }]
+            }]
+        }]
+    }
 }

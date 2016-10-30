@@ -49,5 +49,17 @@ class DatabaseConnector {
             println("Failed to like media")
         }
     }
+    
+    def insertMedia(info){
+        def command = "INSERT INTO media(user_id, category_id, name, filename, description, url_path, mime_type, permission) VALUES "+\
+                        "('${info.userId}', '${info.categoryId}', '${info.name}', '${info.filename}', '${info.description}', '${info.urlPath}', '${info.mimeType}', '${info.permission}')"
+        try {
+            sql.execute(command);
+            println("Media uploaded!") 
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Failed to upload media")
+        }
+    }
 }
 

@@ -19,3 +19,4 @@ sign up username "vany" email "vanydeasy@gmail.com" password "12345" first_name 
 like 1 by "vany"
 sign up username "venny" email "vennylaras@gmail.com" password "12345" first_name "venny" last_name "larasati"
 dislike 1 by "venny"
+upload 1 file "nyanyi.mp4" title "orang gila nyanyi" type "mp4" description "ada orang gila lagi nanyi, keren" permission "public" path "/watch?v=G32anf8s" by "venny"
