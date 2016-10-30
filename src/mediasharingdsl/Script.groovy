@@ -14,11 +14,5 @@ this.metaClass.mixin script
 
 
 // Domain Specific Language
-create "Media", {
-    name "Vany"
-    link "Huba"
-    createdAt 2015-10-11
-}
-create "User"
-
-printMedia()
+download 1 // Download media by ID = 1
+sign up username "vany" email "vanydeasy@gmail.com" password "12345" first_name "vanya" last_name "deasy"

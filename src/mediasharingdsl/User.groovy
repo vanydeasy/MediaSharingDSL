@@ -11,8 +11,10 @@ package mediasharingdsl
  * @author vanyadeasy
  */
 class User {
-    def id
     def username
-    
+    def email
+    def password
+    def first_name
+    def last_name
 }
 

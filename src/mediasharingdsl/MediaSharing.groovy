@@ -13,22 +13,30 @@ import groovy.xml.MarkupBuilder
  * @author vanyadeasy
  */
 class MediaSharing {
-    private final List<Media> medias = []
-    def User[] users
+    def databaseConn = new DatabaseConnector()
     
-    def create(String object) {
-        println "Description not found"
+    def download(id) {
+        def row = databaseConn.getMedia(id)
+        println "Downloaded media from $row.url_path"
     }
     
-    def create(String object, desc) {
-        if(object == "Media") {
-            Media media = new Media(desc);
-        }
-        else println "Ho"
+    def sign(action) {
+        [username: {un -> 
+            [email: {email -> 
+                [password: {pw ->
+                    [first_name: {fn ->
+                        [last_name: {ln ->
+                            User user = new User(username: un,email: email,password: pw,first_name: fn,last_name: ln)
+                            action(user)
+                        }]
+                    }]
+                }]
+            }]
+        }]
     }
     
-    def printMedia() {
-        for(int i=0;i<medias.size();i++)
-            println medias[i].name
+    def up = {
+        databaseConn.insertUser(it)
     }
+    
 }
