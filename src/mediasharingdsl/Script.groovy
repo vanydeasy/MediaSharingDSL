@@ -14,11 +14,19 @@ this.metaClass.mixin script
 
 
 // Domain Specific Language
+
+/**
+ * 1 sign up username [username] email [email] password [password] first_name [first_name] last_name [last_name]
+ * 2 upload [category_id] file [file_name] title [title] type [type] description [description] permission [permission] path [url_path] by [username]
+ * 3 download [media_id]
+ * 4 like [media_id] by [username]
+ * 5 dislike [media_id] by [username]
+ * 6 comment [media_id] by [username] parent [comment_id] content [content]
+ */
+
+sign up username "johndoe" email "johndoeinlove@gmail.com" password "12345" first_name "John" last_name "Doe" // Sign up
+upload 1 file "nyanyi.mp4" title "orang gila nyanyi" type "mp4" description "ada orang lagi nanyi, keren" permission "public" path "/watch?v=G32anf8s" by "johndoe" // Upload media
 download 1 // Download media by ID = 1
-sign up username "vany" email "vanydeasy@gmail.com" password "12345" first_name "vanya" last_name "deasy"
-like 1 by "vany"
-sign up username "venny" email "vennylaras@gmail.com" password "12345" first_name "venny" last_name "larasati"
-dislike 1 by "venny"
-sign up username "pipin" email "pipin@gmail.com" password "12345" first_name "pipin" last_name "kurniawati"
-comment 1 by "pipin" parent 0 content "hooooo"
-upload 1 file "nyanyi.mp4" title "orang gila nyanyi" type "mp4" description "ada orang gila lagi nanyi, keren" permission "public" path "/watch?v=G32anf8s" by "venny"
+like 1 by "johndoe" // Like media by ID = 1
+dislike 1 by "johndoe" // Dislike media by ID = 1
+comment 1 by "johndoe" parent 0 content "hooooo" // Comment media by ID = 1
