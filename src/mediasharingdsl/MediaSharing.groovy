@@ -43,9 +43,9 @@ class MediaSharing {
         [password: {password ->
             def user = databaseConn.getUser(username)
             if(user.username.equals(username) && user.password.equals(password)){
-                println("login success")
+                println("Login success")
             } else {
-                println("login failed")
+                println("Login failed")
             }
         }]
     }

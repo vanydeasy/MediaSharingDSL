@@ -22,6 +22,7 @@ this.metaClass.mixin script
  * 4 like [media_id] by [username]
  * 5 dislike [media_id] by [username]
  * 6 comment [media_id] by [username] parent [comment_id] content [content]
+ * 7 signin [username] password [password]
  */
 
 sign up username "johndoe" email "johndoeinlove@gmail.com" password "12345" first_name "John" last_name "Doe" // Sign up
