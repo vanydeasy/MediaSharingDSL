@@ -47,10 +47,14 @@ class DatabaseConnector {
                         "('${user}', '${mediaId}', '${action}')"
         try {
             sql.execute(command);
-            println("Media liked!") 
+            if (action.equals('like')) {
+                println("Media liked!")
+            } else {
+                println("Media disliked!")
+            }
         } catch(Exception ex) {
             sql.rollback()
-            println("Failed to like media")
+            println("Failed to like/dislike media")
         }
     }
     
