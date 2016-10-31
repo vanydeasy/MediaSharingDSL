@@ -55,8 +55,14 @@ class DatabaseConnector {
     }
     
     def insertComment(user, mediaId, parentId, content) {
-        def command = "INSERT INTO comment(user_id, media_id, parent_id, content) VALUES "+\
+        def command
+        if (parentId == 0 || parentId == -1) {
+            command = "INSERT INTO comment(user_id, media_id, content) VALUES "+\
+                        "('${user}', '${mediaId}', '${content}')"
+        } else {
+            command = "INSERT INTO comment(user_id, media_id, parent_id, content) VALUES "+\
                         "('${user}', '${mediaId}', '${parentId}', '${content}')"
+        }
         try {
             sql.execute(command);
             println("Your comment was successfully posted!") 

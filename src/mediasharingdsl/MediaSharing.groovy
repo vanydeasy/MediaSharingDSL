@@ -55,11 +55,10 @@ class MediaSharing {
     
     def comment(md) {
         [by: {uname ->
-            [parent: {parent -> 
+            [parent: {parentId -> 
                 [content: {content -> 
                     def user = databaseConn.getUser(uname)
-                    def par = databaseConn.getComment(parent)
-                    databaseConn.insertComment(user.id, md, par.id, content)
+                    databaseConn.insertComment(user.id, md, parentId, content)
                 }]
             }]
         }]
