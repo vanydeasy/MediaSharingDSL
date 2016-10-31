@@ -30,3 +30,4 @@ download 1 // Download media by ID = 1
 like 1 by "johndoe" // Like media by ID = 1
 dislike 1 by "johndoe" // Dislike media by ID = 1
 comment 1 by "johndoe" parent 0 content "hooooo" // Comment media by ID = 1
+signin "johndoe" password "12345"

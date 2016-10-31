@@ -39,6 +39,17 @@ class MediaSharing {
         databaseConn.insertUser(it)
     }
     
+    def signin(username) {
+        [password: {password ->
+            def user = databaseConn.getUser(username)
+            if(user.username.equals(username) && user.password.equals(password)){
+                println("login success")
+            } else {
+                println("login failed")
+            }
+        }]
+    }
+    
     def like(md) {
         [by: {un ->
             def user = databaseConn.getUser(un)
